@@ -54,20 +54,6 @@ str_sql = "create table if not exists mydb.mytable (" + \
 
 hive_curs.execute(str_sql)
 
-
-###
-###
-###
-
-df = pd.read_sql("select * from ecoper.order_main where orddt = '2016/11/06' limit 5", hive_conn)
-
-hive_curs.execute("delete from ecoper.order_main where substr(trim(orddt), 1, 4) != '2016'")
-hive_curs.execute("use test1")
-hive_curs.execute("analyze table test1.order_detail partition (orddt = '2016/04/05') compute statistics")
-hive_curs.execute("desc formatted test1.order_detail")
-hive_curs.execute("alter table test1.order_detail drop if exists partition (orddt = '__HIVE_DEF'), partition (orddt = '__HIVE_DEFAULT_PARTITION__')")
-print( hive_curs.fetchall() )
-
 #
 #
 #
