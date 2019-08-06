@@ -39,6 +39,10 @@ str_sql = "create table if not exists temp.mytable (" + \
 
 hive_curs.execute(str_sql)
 
+hive_curs.execute("use temp")
+hive_curs.execute("show tables")
+print( hive_curs.fetchall() )
+
 
 str_sql = "create table if not exists mydb.mytable (" + \
     "col1  char(4)         " + "," + \
@@ -53,6 +57,10 @@ str_sql = "create table if not exists mydb.mytable (" + \
     " stored as orc tblproperties ('transactional' = 'true')"
 
 hive_curs.execute(str_sql)
+
+hive_curs.execute("use mydb")
+hive_curs.execute("show tables")
+print( hive_curs.fetchall() )
 
 #
 #
