@@ -8,8 +8,8 @@ using System.Data;
 public class OracleQuery
 {
     [Publish(NoLog = true)]
-	public string Query(string sqlcmd, string is_transform_addr_isfloor = "false")
-	{
+    public string Query(string sqlcmd, string is_transform_addr_isfloor = "false")
+    {
         string str_out = "";
 
         DataTable dt = MyQuery(sqlcmd);
@@ -72,7 +72,7 @@ public class OracleQuery
 
 
         return str_out;
-	}
+    }
 
 
     DataTable transform_addr_isfloor(DataTable dt, string proc_colname)
