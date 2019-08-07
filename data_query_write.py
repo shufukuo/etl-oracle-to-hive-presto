@@ -200,17 +200,6 @@ tmp_log.close()
 
 quit()
 
-
-###
-###
-###
-
-    str_sql = """
-        select t.*, '$date$' as date
-        from ( select rownum as rn, t.* from db.order t where id between '$dt$$id_from$' and '$dt$$id_to$' ) t
-        where rn between $lb$ and $ub$
-        """
-
 #
 #
 #
